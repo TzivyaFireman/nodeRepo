@@ -12,15 +12,20 @@ class User {
         if (!user.id || !user.name || !user.email || !user.password) {
             throw new Error('All fields are required');
         }
+      if (!validator.isEmail(user.email)) {
+        throw new Error('Invalid email format');
+      }
     }
+
+
 
 
     async addUser(user) {
-        validateUser(user);
+        validateUser(user)
         return user;
     }
     async updateUser(id, user) {
-        validateUser(user);
+        validateUser(user)
         return user;
     }
     async getUser(id) {
@@ -32,11 +37,10 @@ class User {
     async deleteUser(id) {
         return user;
     }
+
 }
+
+
+
+
 module.exports = User;
-
-
-
-
-
-
