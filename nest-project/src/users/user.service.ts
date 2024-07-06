@@ -28,6 +28,7 @@ export class UserService {
 
     if (!user) {
         console.log('User not found');
+        return undefined;
     }
     return "hello"+user;
   }
